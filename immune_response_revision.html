@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immune Response Revision - Year 12 Biology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 20px 30px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #495057;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .interactive-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .interactive-card h4 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .hidden-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .hidden-content.show {
+            max-height: 1000px;
+        }
+
+        .quiz-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+
+        .quiz-options {
+            margin: 15px 0;
+        }
+
+        .quiz-option {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .check-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .check-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .diagram {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .cell {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: white;
+            font-size: 0.95em;
+        }
+
+        .cell.phagocyte { background: #ff6b6b; }
+        .cell.tcell { background: #4ecdc4; }
+        .cell.bcell { background: #45b7d1; }
+        .cell.helper { background: #96ceb4; }
+        .cell.killer { background: #ffeaa7; color: #333; }
+        .cell.memory { background: #fd79a8; }
+
+        .arrow {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+
+        .key-terms {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .key-terms dt {
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .key-terms dd {
+            margin-left: 20px;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tab {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧬 The Immune Response</h1>
+            <p>Year 12 Biology Revision Resource</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">Overview</button>
+            <button class="nav-tab" onclick="showTab('phagocytosis')">Phagocytosis</button>
+            <button class="nav-tab" onclick="showTab('cell-mediated')">Cell-Mediated</button>
+            <button class="nav-tab" onclick="showTab('humoral')">Humoral Response</button>
+            <button class="nav-tab" onclick="showTab('hiv')">HIV & AIDS</button>
+            <button class="nav-tab" onclick="showTab('vaccination')">Vaccination</button>
+            <button class="nav-tab" onclick="showTab('quiz')">Quick Quiz</button>
+            <button class="nav-tab" onclick="showTab('exam')">Exam Questions</button>
+        </div>
+
+        <div class="content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2>Understanding the Immune System</h2>
+                
+                <p>The immune system is your body's defense mechanism against pathogens such as bacteria, viruses, fungi, and parasites. It consists of two main types of immunity:</p>
+
+                <div class="info-box">
+                    <h3>Non-Specific (Innate) Immunity</h3>
+                    <ul>
+                        <li>First line of defense</li>
+                        <li>Present from birth</li>
+                        <li>Responds the same way to all pathogens</li>
+                        <li>Includes physical barriers (skin), chemical barriers (stomach acid), and phagocytosis</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Specific (Adaptive) Immunity</h3>
+                    <ul>
+                        <li>Second line of defense</li>
+                        <li>Develops throughout life</li>
+                        <li>Targets specific pathogens</li>
+                        <li>Includes cell-mediated and humoral responses</li>
+                        <li>Has immunological memory</li>
+                    </ul>
+                </div>
+
+                <h3>Key Cells of the Immune System</h3>
+                <div class="diagram">
+                    <div class="cell phagocyte">Phagocytes</div>
+                    <div class="cell tcell">T Lymphocytes</div>
+                    <div class="cell bcell">B Lymphocytes</div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🔍 Click to explore: Why do we need both types of immunity?</h4>
+                    <div class="hidden-content">
+                        <p><strong>Non-specific immunity</strong> provides immediate protection and buys time for the specific immune response to develop. It's fast but not very precise.</p>
+                        <p><strong>Specific immunity</strong> takes longer to activate (days) but is highly targeted and creates lasting memory. This is why you typically don't get the same disease twice!</p>
+                        <p>Together, they provide comprehensive protection against the vast array of pathogens we encounter daily.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phagocytosis Tab -->
+            <div id="phagocytosis" class="tab-content">
+                <h2>Phagocytosis: The First Responders</h2>
+                
+                <p>Phagocytosis is the process by which phagocytes (a type of white blood cell) engulf and destroy pathogens. It's a crucial part of non-specific immunity.</p>
+
+                <h3>The Process of Phagocytosis</h3>
+                <ol>
+                    <li><strong>Detection:</strong> Phagocytes detect chemical signals released by pathogens or damaged cells</li>
+                    <li><strong>Movement:</strong> The phagocyte moves toward the pathogen via chemotaxis</li>
+                    <li><strong>Recognition:</strong> Receptors on the phagocyte recognize foreign antigens on the pathogen's surface</li>
+                    <li><strong>Engulfment:</strong> The phagocyte's membrane extends around the pathogen, forming pseudopodia</li>
+                    <li><strong>Phagosome formation:</strong> The pathogen is enclosed in a vesicle called a phagosome</li>
+                    <li><strong>Lysosome fusion:</strong> Lysosomes containing digestive enzymes fuse with the phagosome</li>
+                    <li><strong>Digestion:</strong> Enzymes (lysozymes) break down the pathogen</li>
+                    <li><strong>Waste removal:</strong> Harmless waste products are expelled from the cell</li>
+                </ol>
+
+                <div class="info-box">
+                    <h3>Types of Phagocytes</h3>
+                    <ul>
+                        <li><strong>Neutrophils:</strong> Most abundant; first to arrive at infection site; short-lived</li>
+                        <li><strong>Macrophages:</strong> Larger; longer-lived; also act as antigen-presenting cells (APCs)</li>
+                        <li><strong>Dendritic cells:</strong> Found in tissues; excellent at presenting antigens to T cells</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🧪 Clinical Connection: What happens when phagocytosis fails?</h4>
+                    <div class="hidden-content">
+                        <p>Some pathogens have evolved mechanisms to evade phagocytosis:</p>
+                        <ul>
+                            <li><strong>Bacterial capsules:</strong> Prevent recognition (e.g., <em>Streptococcus pneumoniae</em>)</li>
+                            <li><strong>Survival inside phagocytes:</strong> Some bacteria can resist digestion (e.g., <em>Mycobacterium tuberculosis</em>)</li>
+                            <li><strong>Toxin production:</strong> Kill phagocytes before being engulfed</li>
+                        </ul>
+                        <p>This is why we need the specific immune response as backup!</p>
+                    </div>
+                </div>
+
+                <h3>Antigen Presentation</h3>
+                <p>After digesting a pathogen, macrophages and dendritic cells display pathogen antigens on their surface using MHC (Major Histocompatibility Complex) molecules. This is crucial for activating the specific immune response!</p>
+            </div>
+
+            <!-- Cell-Mediated Response Tab -->
+            <div id="cell-mediated" class="tab-content">
+                <h2>Cell-Mediated Immune Response</h2>
+                
+                <p>The cell-mediated response is coordinated by T lymphocytes (T cells) and is particularly effective against:</p>
+                <ul>
+                    <li>Intracellular pathogens (viruses, some bacteria)</li>
+                    <li>Infected body cells</li>
+                    <li>Cancer cells</li>
+                    <li>Transplanted tissues</li>
+                </ul>
+
+                <h3>Types of T Cells</h3>
+                
+                <div class="diagram">
+                    <div class="cell helper">T Helper Cells (CD4+)</div>
+                    <div class="arrow">→</div>
+                    <p style="display: inline; color: #667eea; font-weight: bold;">Coordinate immune response</p>
+                </div>
+
+                <div class="diagram">
+                    <div class="cell killer">Cytotoxic T Cells (CD8+)</div>
+                    <div class="arrow">→</div>
+                    <p style="display: inline; color: #667eea; font-weight: bold;">Destroy infected cells</p>
+                </div>
+
+                <div class="diagram">
+                    <div class="cell memory">Memory T Cells</div>
+                    <div class="arrow">→</div>
+                    <p style="display: inline; color: #667eea; font-weight: bold;">Long-term immunity</p>
+                </div>
+
+                <h3>The Cell-Mediated Response Process</h3>
+                <ol>
+                    <li><strong>Antigen Presentation:</strong> Antigen-presenting cells (APCs) display foreign antigens on their surface using MHC class II molecules</li>
+                    <li><strong>T Cell Activation:</strong> T helper cells with complementary receptors bind to the antigen-MHC complex</li>
+                    <li><strong>Clonal Selection:</strong> The activated T helper cell divides rapidly to produce many identical clones</li>
+                    <li><strong>Differentiation:</strong> Clones differentiate into:
+                        <ul>
+                            <li>Active T helper cells (release cytokines)</li>
+                            <li>Memory T cells (remain in the body for years)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cytokine Release:</strong> T helper cells release cytokines that:
+                        <ul>
+                            <li>Activate cytotoxic T cells</li>
+                            <li>Stimulate B cells</li>
+                            <li>Enhance phagocytosis</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cell Destruction:</strong> Cytotoxic T cells recognize and destroy infected cells by:
+                        <ul>
+                            <li>Releasing perforin (creates pores in cell membrane)</li>
+                            <li>Releasing granzymes (trigger apoptosis)</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="info-box">
+                    <h3>Key Terms</h3>
+                    <dl class="key-terms">
+                        <dt>Clonal Selection</dt>
+                        <dd>The process by which a specific lymphocyte is selected and reproduces to create many identical copies</dd>
+                        
+                        <dt>Clonal Expansion</dt>
+                        <dd>The rapid division of the selected lymphocyte to produce a large population of cells</dd>
+                        
+                        <dt>Cytokines</dt>
+                        <dd>Cell signaling molecules that coordinate the immune response</dd>
+                        
+                        <dt>Apoptosis</dt>
+                        <dd>Programmed cell death - cells self-destruct in a controlled way</dd>
+                    </dl>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>💡 Why can't cytotoxic T cells just kill all infected cells immediately?</h4>
+                    <div class="hidden-content">
+                        <p>Cytotoxic T cells need to be activated by T helper cells first. This is a safety mechanism!</p>
+                        <p>Without this requirement, cytotoxic T cells might accidentally attack healthy body cells. The T helper cell acts as a "quality control" step, confirming that there really is an infection before unleashing cell destruction.</p>
+                        <p>This is why HIV is so devastating - it targets T helper cells, preventing the activation of cytotoxic T cells and other immune responses.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humoral Response Tab -->
+            <div id="humoral" class="tab-content">
+                <h2>Humoral Immune Response</h2>
+                
+                <p>The humoral response involves B lymphocytes (B cells) and produces antibodies that circulate in body fluids ("humors"). It's particularly effective against:</p>
+                <ul>
+                    <li>Extracellular pathogens (bacteria in blood/lymph)</li>
+                    <li>Toxins produced by bacteria</li>
+                    <li>Pathogens before they enter cells</li>
+                </ul>
+
+                <h3>The Humoral Response Process</h3>
+                <ol>
+                    <li><strong>Antigen Recognition:</strong> B cells with complementary receptors bind to free antigens</li>
+                    <li><strong>Antigen Processing:</strong> B cells internalize and process the antigen</li>
+                    <li><strong>Antigen Presentation:</strong> B cells display antigen fragments on their surface</li>
+                    <li><strong>T Helper Cell Activation:</strong> T helper cells bind to the B cell and release cytokines</li>
+                    <li><strong>Clonal Selection & Expansion:</strong> The activated B cell divides rapidly</li>
+                    <li><strong>Differentiation:</strong> B cell clones become:
+                        <ul>
+                            <li><strong>Plasma cells:</strong> Secrete large quantities of antibodies (can produce 2,000 per second!)</li>
+                            <li><strong>Memory B cells:</strong> Remain dormant for rapid response to future infections</li>
+                        </ul>
+                    </li>
+                    <li><strong>Antibody Action:</strong> Antibodies neutralize pathogens and mark them for destruction</li>
+                </ol>
+
+                <h3>Antibody Structure</h3>
+                <div class="info-box">
+                    <p>Antibodies (immunoglobulins) are Y-shaped proteins with:</p>
+                    <ul>
+                        <li><strong>Variable regions:</strong> Form the antigen-binding sites (specific to one antigen)</li>
+                        <li><strong>Constant region:</strong> Determines the antibody's function and class</li>
+                        <li><strong>Four polypeptide chains:</strong> Two heavy chains and two light chains, held together by disulfide bonds</li>
+                    </ul>
+                </div>
+
+                <h3>How Antibodies Work</h3>
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🎯 Agglutination</h4>
+                    <div class="hidden-content">
+                        <p>Antibodies bind to multiple pathogens at once, clumping them together. This:</p>
+                        <ul>
+                            <li>Prevents pathogens from entering cells</li>
+                            <li>Makes them easier for phagocytes to engulf</li>
+                            <li>Reduces the number of infectious units</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🚫 Neutralization</h4>
+                    <div class="hidden-content">
+                        <p>Antibodies cover binding sites on pathogens or toxins, preventing them from:</p>
+                        <ul>
+                            <li>Attaching to host cells</li>
+                            <li>Entering cells</li>
+                            <li>Causing cellular damage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🏷️ Opsonization</h4>
+                    <div class="hidden-content">
+                        <p>Antibodies act as "tags" that mark pathogens for destruction by phagocytes. The constant region of the antibody binds to receptors on phagocytes, enhancing phagocytosis.</p>
+                    </div>
+                </div>
+
+                <h3>Primary vs Secondary Response</h3>
+                <div class="info-box">
+                    <h4>Primary Response (First Exposure)</h4>
+                    <ul>
+                        <li>Slower response (several days to weeks)</li>
+                        <li>Lower antibody concentration</li>
+                        <li>Mainly IgM antibodies initially</li>
+                        <li>Symptoms often develop</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>Secondary Response (Subsequent Exposures)</h4>
+                    <ul>
+                        <li>Faster response (hours to days)</li>
+                        <li>Higher antibody concentration</li>
+                        <li>Mainly IgG antibodies</li>
+                        <li>Often no symptoms (pathogen destroyed quickly)</li>
+                        <li>This is immunological memory!</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚠️ Exam Tip</h3>
+                    <p>Remember: Both cell-mediated and humoral responses work together! T helper cells are essential for activating B cells in the humoral response. They're not separate systems but interconnected parts of adaptive immunity.</p>
+                </div>
+            </div>
+
+            <!-- HIV & AIDS Tab -->
+            <div id="hiv" class="tab-content">
+                <h2>HIV and AIDS</h2>
+                
+                <p>Human Immunodeficiency Virus (HIV) is a retrovirus that attacks the immune system, specifically targeting T helper cells (CD4+ cells). If left untreated, it can progress to Acquired Immunodeficiency Syndrome (AIDS).</p>
+
+                <h3>HIV Structure</h3>
+                <div class="info-box">
+                    <ul>
+                        <li><strong>Envelope:</strong> Lipid bilayer from host cell membrane with viral glycoproteins (gp120 and gp41)</li>
+                        <li><strong>Capsid:</strong> Protein shell protecting the genetic material</li>
+                        <li><strong>RNA genome:</strong> Two copies of single-stranded RNA</li>
+                        <li><strong>Reverse transcriptase:</strong> Enzyme that converts RNA to DNA</li>
+                        <li><strong>Integrase:</strong> Enzyme that inserts viral DNA into host genome</li>
+                        <li><strong>Protease:</strong> Enzyme that processes viral proteins</li>
+                    </ul>
+                </div>
+
+                <h3>HIV Replication Cycle</h3>
+                <ol>
+                    <li><strong>Attachment:</strong> HIV's gp120 protein binds to CD4 receptors on T helper cells</li>
+                    <li><strong>Fusion:</strong> Viral envelope fuses with cell membrane; HIV enters the cell</li>
+                    <li><strong>Reverse Transcription:</strong> Reverse transcriptase converts viral RNA into DNA</li>
+                    <li><strong>Integration:</strong> Viral DNA enters the nucleus and integrates into host chromosome using integrase</li>
+                    <li><strong>Replication:</strong> Host cell machinery transcribes viral genes and produces viral proteins</li>
+                    <li><strong>Assembly:</strong> New viral RNA and proteins gather at the cell membrane</li>
+                    <li><strong>Budding:</strong> New virions bud from the cell, acquiring a membrane envelope</li>
+                    <li><strong>Maturation:</strong> Protease cleaves viral proteins; virions become infectious</li>
+                </ol>
+
+                <h3>Why HIV is so Effective</h3>
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🎯 Targets the Coordinator</h4>
+                    <div class="hidden-content">
+                        <p>By destroying T helper cells, HIV cripples the entire immune system. Remember, T helper cells:</p>
+                        <ul>
+                            <li>Activate cytotoxic T cells</li>
+                            <li>Activate B cells to produce antibodies</li>
+                            <li>Enhance phagocytosis</li>
+                        </ul>
+                        <p>Without them, the body cannot mount effective cell-mediated or humoral responses!</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🧬 High Mutation Rate</h4>
+                    <div class="hidden-content">
+                        <p>Reverse transcriptase is error-prone, causing frequent mutations. This means:</p>
+                        <ul>
+                            <li>HIV constantly changes its surface antigens</li>
+                            <li>Antibodies become ineffective as the virus evolves</li>
+                            <li>Vaccine development is extremely challenging</li>
+                            <li>Drug resistance can develop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🔒 Latency Period</h4>
+                    <div class="hidden-content">
+                        <p>HIV can remain dormant inside cells for years. During latency:</p>
+                        <ul>
+                            <li>The virus is hidden from the immune system</li>
+                            <li>Infected cells appear normal</li>
+                            <li>The person may have no symptoms but can still transmit the virus</li>
+                            <li>This makes complete elimination extremely difficult</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Progression from HIV to AIDS</h3>
+                <div class="diagram">
+                    <p style="color: #667eea; font-weight: bold; margin: 10px;">CD4+ T Cell Count</p>
+                    <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                        <p><strong>Healthy:</strong> 500-1,500 cells/mm³</p>
+                        <p><strong>HIV Infection:</strong> Gradual decline over years (asymptomatic phase)</p>
+                        <p><strong>AIDS Diagnosis:</strong> Below 200 cells/mm³</p>
+                    </div>
+                </div>
+
+                <h3>AIDS-Defining Conditions</h3>
+                <p>When CD4+ count drops below 200, the person is vulnerable to opportunistic infections:</p>
+                <ul>
+                    <li><strong>Tuberculosis:</strong> Bacterial infection of the lungs</li>
+                    <li><strong>Pneumocystis pneumonia:</strong> Fungal lung infection</li>
+                    <li><strong>Kaposi's sarcoma:</strong> Cancer causing skin lesions</li>
+                    <li><strong>Toxoplasmosis:</strong> Parasitic brain infection</li>
+                    <li><strong>Cytomegalovirus:</strong> Can cause blindness</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p>These infections are called "opportunistic" because they take advantage of the weakened immune system. Healthy immune systems usually control these pathogens easily.</p>
+                </div>
+
+                <h3>Treatment: Antiretroviral Therapy (ART)</h3>
+                <div class="info-box">
+                    <p>Modern HIV treatment uses combinations of drugs that target different stages of viral replication:</p>
+                    <ul>
+                        <li><strong>Reverse transcriptase inhibitors:</strong> Block conversion of RNA to DNA</li>
+                        <li><strong>Protease inhibitors:</strong> Prevent maturation of new virions</li>
+                        <li><strong>Integrase inhibitors:</strong> Block integration of viral DNA into host genome</li>
+                        <li><strong>Entry/fusion inhibitors:</strong> Prevent virus from entering cells</li>
+                    </ul>
+                    <p>When taken consistently, ART can reduce viral load to undetectable levels, allowing people with HIV to live long, healthy lives and preventing transmission (U=U: Undetectable = Untransmittable).</p>
+                </div>
+
+                <h3>Prevention Strategies</h3>
+                <ul>
+                    <li>Safe sexual practices (condoms, PrEP)</li>
+                    <li>Screening of blood products</li>
+                    <li>Needle exchange programs</li>
+                    <li>Prevention of mother-to-child transmission during pregnancy/birth</li>
+                    <li>Post-exposure prophylaxis (PEP) after potential exposure</li>
+                    <li>Education and awareness</li>
+                </ul>
+            </div>
+
+            <!-- Vaccination Tab -->
+            <div id="vaccination" class="tab-content">
+                <h2>Vaccination: Artificial Active Immunity</h2>
+                
+                <p>Vaccination is one of the most successful public health interventions in history. It works by exposing the immune system to harmless forms of pathogens, triggering immunological memory without causing disease.</p>
+
+                <h3>What is Vaccination?</h3>
+                <div class="info-box">
+                    <p>Vaccination involves introducing antigens from a pathogen to stimulate an immune response. This creates memory cells that provide long-lasting immunity without the person suffering from the actual disease.</p>
+                </div>
+
+                <h3>Types of Vaccines</h3>
+                
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>💉 Live Attenuated Vaccines</h4>
+                    <div class="hidden-content">
+                        <p><strong>What they contain:</strong> Weakened (attenuated) live pathogens that can replicate but don't cause disease</p>
+                        <p><strong>How they work:</strong> Closely mimic natural infection, producing strong cell-mediated and humoral responses</p>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Strong, long-lasting immunity (often lifelong)</li>
+                            <li>Usually only need one or two doses</li>
+                            <li>Stimulate all aspects of immunity</li>
+                        </ul>
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>Risk of reversion to virulent form (very rare)</li>
+                            <li>Cannot be given to immunocompromised individuals</li>
+                            <li>Require refrigeration (cold chain)</li>
+                        </ul>
+                        <p><strong>Examples:</strong> MMR (measles, mumps, rubella), yellow fever, oral polio vaccine, chickenpox</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🧪 Inactivated (Killed) Vaccines</h4>
+                    <div class="hidden-content">
+                        <p><strong>What they contain:</strong> Dead pathogens killed by heat or chemicals</p>
+                        <p><strong>How they work:</strong> Present antigens without any risk of causing disease</p>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Very safe - cannot cause disease</li>
+                            <li>Stable and easier to store</li>
+                            <li>Safe for immunocompromised individuals</li>
+                        </ul>
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>Weaker immune response than live vaccines</li>
+                            <li>Require multiple doses and boosters</li>
+                            <li>Mainly stimulate humoral response (antibodies)</li>
+                        </ul>
+                        <p><strong>Examples:</strong> Inactivated polio vaccine (IPV), hepatitis A, rabies, flu vaccine (injected)</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🔬 Subunit Vaccines</h4>
+                    <div class="hidden-content">
+                        <p><strong>What they contain:</strong> Only specific antigens (proteins or polysaccharides) from the pathogen, not the whole organism</p>
+                        <p><strong>How they work:</strong> Target immune response to key antigens</p>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Very safe - no whole pathogen present</li>
+                            <li>Fewer side effects</li>
+                            <li>Can be used in immunocompromised individuals</li>
+                        </ul>
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>Weaker immune response</li>
+                            <li>Often require adjuvants (immune boosters)</li>
+                            <li>Multiple doses needed</li>
+                        </ul>
+                        <p><strong>Examples:</strong> Hepatitis B, HPV, pneumococcal vaccine, whooping cough (acellular pertussis)</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🧬 mRNA Vaccines</h4>
+                    <div class="hidden-content">
+                        <p><strong>What they contain:</strong> Messenger RNA that codes for a specific viral protein (antigen)</p>
+                        <p><strong>How they work:</strong> mRNA enters cells and instructs them to produce the viral protein. The immune system recognizes this protein as foreign and mounts a response.</p>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Rapid development and production</li>
+                            <li>Strong immune response (both antibodies and T cells)</li>
+                            <li>No live pathogen - cannot cause infection</li>
+                            <li>No DNA involved - cannot alter human genome</li>
+                        </ul>
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>Require ultra-cold storage (some formulations)</li>
+                            <li>New technology with less long-term data</li>
+                            <li>May cause temporary immune reactions</li>
+                        </ul>
+                        <p><strong>Examples:</strong> Pfizer-BioNTech COVID-19 vaccine, Moderna COVID-19 vaccine</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>🦠 Toxoid Vaccines</h4>
+                    <div class="hidden-content">
+                        <p><strong>What they contain:</strong> Inactivated toxins (toxoids) produced by bacteria</p>
+                        <p><strong>How they work:</strong> Stimulate antibodies against bacterial toxins rather than the bacteria themselves</p>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Very safe</li>
+                            <li>Target the disease-causing toxin directly</li>
+                        </ul>
+                        <p><strong>Disadvantages:</strong></p>
+                        <ul>
+                            <li>Require multiple doses and boosters</li>
+                            <li>Only protect against toxin-mediated diseases</li>
+                        </ul>
+                        <p><strong>Examples:</strong> Tetanus, diphtheria</p>
+                    </div>
+                </div>
+
+                <h3>How Vaccination Creates Immunity</h3>
+                <ol>
+                    <li><strong>Antigen Introduction:</strong> Vaccine antigens enter the body</li>
+                    <li><strong>Primary Immune Response:</strong> 
+                        <ul>
+                            <li>APCs process and present antigens</li>
+                            <li>T helper cells are activated</li>
+                            <li>B cells produce antibodies</li>
+                            <li>Cytotoxic T cells (if appropriate) are activated</li>
+                        </ul>
+                    </li>
+                    <li><strong>Memory Cell Formation:</strong> Some activated lymphocytes become memory cells rather than effector cells</li>
+                    <li><strong>Long-term Protection:</strong> Memory B and T cells remain in the body for years or decades</li>
+                    <li><strong>Future Exposure:</strong> If the real pathogen enters, memory cells trigger rapid secondary response, preventing disease</li>
+                </ol>
+
+                <div class="diagram">
+                    <p style="color: #667eea; font-weight: bold; margin-bottom: 15px;">Vaccination Timeline</p>
+                    <div style="text-align: left; max-width: 700px; margin: 0 auto;">
+                        <p><strong>Day 0:</strong> Vaccine administered → antigens enter body</p>
+                        <p><strong>Days 1-7:</strong> Primary immune response begins → clonal selection and expansion</p>
+                        <p><strong>Days 7-14:</strong> Antibody levels rise → symptoms may occur (mild fever, soreness)</p>
+                        <p><strong>Weeks 2-4:</strong> Memory cells established → antibodies decline to baseline</p>
+                        <p><strong>Months-Years later:</strong> Memory cells remain → ready for rapid response</p>
+                    </div>
+                </div>
+
+                <h3>Active vs Passive Immunity</h3>
+                <div class="info-box">
+                    <h4>Active Immunity</h4>
+                    <p><strong>Definition:</strong> Immunity produced by the individual's own immune system</p>
+                    <p><strong>How acquired:</strong></p>
+                    <ul>
+                        <li><strong>Natural:</strong> Exposure to disease (e.g., having chickenpox)</li>
+                        <li><strong>Artificial:</strong> Vaccination</li>
+                    </ul>
+                    <p><strong>Characteristics:</strong></p>
+                    <ul>
+                        <li>Slow to develop (days to weeks)</li>
+                        <li>Long-lasting (years to lifetime)</li>
+                        <li>Involves memory cell formation</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>Passive Immunity</h4>
+                    <p><strong>Definition:</strong> Immunity acquired from another source (ready-made antibodies)</p>
+                    <p><strong>How acquired:</strong></p>
+                    <ul>
+                        <li><strong>Natural:</strong> Antibodies from mother via placenta or breast milk</li>
+                        <li><strong>Artificial:</strong> Injection of antibodies (immunoglobulin therapy)</li>
+                    </ul>
+                    <p><strong>Characteristics:</strong></p>
+                    <ul>
+                        <li>Immediate protection</li>
+                        <li>Short-lasting (weeks to months)</li>
+                        <li>No memory cells formed</li>
+                    </ul>
+                    <p><strong>When used:</strong> Rabies exposure, tetanus wound treatment, snake bites, immunocompromised patients</p>
+                </div>
+
+                <h3>Herd Immunity</h3>
+                <div class="info-box">
+                    <p>When a large percentage of a population is immune to a disease (through vaccination or previous infection), the spread of disease is limited. This protects vulnerable individuals who cannot be vaccinated:</p>
+                    <ul>
+                        <li>Newborn babies (too young for some vaccines)</li>
+                        <li>Immunocompromised individuals (cancer patients, HIV-positive individuals)</li>
+                        <li>People with severe allergies to vaccine components</li>
+                        <li>Elderly with weakened immune systems</li>
+                    </ul>
+                    <p><strong>Threshold for herd immunity:</strong> Varies by disease</p>
+                    <ul>
+                        <li>Measles: ~95% (highly contagious)</li>
+                        <li>Polio: ~80-85%</li>
+                        <li>COVID-19: ~70-90% (depends on variant)</li>
+                    </ul>
+                </div>
+
+                <h3>Why Multiple Doses?</h3>
+                <div class="interactive-card" onclick="toggleContent(this)">
+                    <h4>💪 Boosters Strengthen Memory</h4>
+                    <div class="hidden-content">
+                        <p>Each vaccine dose stimulates the immune system:</p>
+                        <ul>
+                            <li><strong>First dose (primary):</strong> Creates initial memory cells</li>
+                            <li><strong>Second dose (booster):</strong> Triggers secondary response, creating more memory cells with higher affinity antibodies</li>
+                            <li><strong>Additional boosters:</strong> Maintain memory cell populations and antibody levels</li>
+                        </ul>
+                        <p>This is why some vaccines require 2-3 doses spaced weeks apart for optimal protection.</p>
+                    </div>
+                </div>
+
+                <h3>Why Vaccinations Are Important</h3>
+                <div class="warning-box">
+                    <h3>🏆 Success Stories</h3>
+                    <ul>
+                        <li><strong>Smallpox:</strong> Eradicated globally in 1980 through vaccination</li>
+                        <li><strong>Polio:</strong> Nearly eradicated; reduced by 99% since 1988</li>
+                        <li><strong>Measles:</strong> Deaths reduced by 73% globally between 2000-2018</li>
+                        <li><strong>Tetanus:</strong> Neonatal tetanus eliminated in most countries</li>
+                    </ul>
+                </div>
+
+                <h3>Vaccine Hesitancy: Addressing Concerns</h3>
+                <div class="info-box">
+                    <p><strong>Myth:</strong> Vaccines cause autism</p>
+                    <p><strong>Fact:</strong> Multiple large-scale studies have found no link between vaccines and autism. The original fraudulent study was retracted and the doctor lost his medical license.</p>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>Myth:</strong> Natural immunity is better than vaccine immunity</p>
+                    <p><strong>Fact:</strong> While natural infection does create immunity, it comes with significant risks of severe disease, complications, and death. Vaccines provide immunity without these dangers.</p>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>Myth:</strong> Too many vaccines overwhelm the immune system</p>
+                    <p><strong>Fact:</strong> The immune system can handle thousands of antigens at once. Modern vaccines contain far fewer antigens than older vaccines, yet are more effective.</p>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>Concern:</strong> Vaccine side effects</p>
+                    <p><strong>Reality:</strong> Most side effects are mild (sore arm, low-grade fever) and indicate the immune system is responding. Serious side effects are extremely rare and are outweighed by the benefits of preventing disease.</p>
+                </div>
+
+                <h3>Challenges in Vaccine Development</h3>
+                <ul>
+                    <li><strong>Antigenic variation:</strong> Some pathogens (like influenza and HIV) constantly change their surface antigens, requiring new vaccines</li>
+                    <li><strong>Weak immune response:</strong> Some pathogens evade immune detection</li>
+                    <li><strong>Short-lived immunity:</strong> Some vaccines require regular boosters</li>
+                    <li><strong>Safety concerns:</strong> Extensive testing required to ensure safety</li>
+                    <li><strong>Production costs:</strong> Some vaccines are expensive to manufacture and distribute</li>
+                    <li><strong>Cold chain requirements:</strong> Many vaccines need refrigeration, challenging in remote areas</li>
+                </ul>
+
+                <div class="warning-box">
+                    <h3>⚠️ Exam Tip</h3>
+                    <p>Be able to explain HOW vaccines create immunity using the terms: antigen, antigen-presenting cell, T helper cell, B cell, plasma cell, memory cell, primary response, secondary response, and clonal selection.</p>
+                    <p>Also be ready to compare different types of immunity (active vs passive, natural vs artificial) with examples!</p>
+                </div>
+            </div>
+
+            <!-- Exam Questions Tab -->
+            <div id="exam" class="tab-content">
+                <h2>Example Exam Questions & Mark Schemes</h2>
+                
+                <p>Practice with these exam-style questions. Click "Show Mark Scheme" to reveal the answers and marking criteria.</p>
+
+                <div class="quiz-section">
+                    <h3>Question 1 (6 marks)</h3>
+                    <p><strong>Describe the process of phagocytosis.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms1')">Show Mark Scheme</button>
+                    <div id="ms1" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 6 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>Phagocyte is attracted to pathogen by chemoattractants/chemical signals (chemotaxis)</li>
+                            <li>Phagocyte recognizes foreign antigens on the pathogen's surface</li>
+                            <li>Phagocyte binds to/attaches to the pathogen</li>
+                            <li>Cell membrane/cytoplasm extends around the pathogen forming pseudopodia</li>
+                            <li>Pathogen is engulfed/enclosed in a vesicle/vacuole</li>
+                            <li>Vesicle/vacuole is called a phagosome</li>
+                            <li>Lysosomes fuse with the phagosome</li>
+                            <li>Lysosomes release digestive enzymes/lysozymes</li>
+                            <li>Enzymes hydrolyse/digest/break down the pathogen</li>
+                            <li>Waste products are expelled/released from the cell (exocytosis)</li>
+                        </ol>
+                        <p><em>Note: Accept equivalent terminology. Sequential order not required.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 2 (8 marks)</h3>
+                    <p><strong>Explain how the humoral immune response leads to immunity after a pathogen enters the blood.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms2')">Show Mark Scheme</button>
+                    <div id="ms2" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 8 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>Pathogen has antigens on its surface</li>
+                            <li>Macrophage/phagocyte engulfs and processes pathogen</li>
+                            <li>Antigen is presented on the surface of the antigen-presenting cell (APC)</li>
+                            <li>T helper cell with complementary receptor binds to the antigen</li>
+                            <li>T helper cell is activated and releases cytokines</li>
+                            <li>Cytokines stimulate a specific B cell with complementary antibody/receptor</li>
+                            <li>B cell undergoes clonal selection and clonal expansion/divides by mitosis</li>
+                            <li>B cells differentiate into plasma cells and memory cells</li>
+                            <li>Plasma cells secrete/produce large quantities of antibodies</li>
+                            <li>Antibodies bind to antigens on the pathogen</li>
+                            <li>This leads to agglutination/clumping of pathogens</li>
+                            <li>Phagocytes destroy the pathogens/antibodies act as opsonins</li>
+                            <li>Memory cells remain in the blood for long-term immunity</li>
+                            <li>Memory cells enable a faster/stronger secondary response upon re-infection</li>
+                        </ol>
+                        <p><em>Note: Award marks for clear description of the sequence. Use of scientific terminology is essential.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 3 (5 marks)</h3>
+                    <p><strong>Explain why HIV eventually leads to AIDS.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms3')">Show Mark Scheme</button>
+                    <div id="ms3" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 5 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>HIV infects/destroys T helper cells/CD4+ cells</li>
+                            <li>T helper cells coordinate the immune response</li>
+                            <li>Reduction in T helper cells means B cells are not activated/stimulated</li>
+                            <li>Therefore fewer antibodies are produced</li>
+                            <li>Cytotoxic T cells are not activated</li>
+                            <li>Immune system cannot respond effectively to infections</li>
+                            <li>Person becomes vulnerable to opportunistic infections</li>
+                            <li>AIDS is diagnosed when CD4+ count falls below 200 cells/mm³ OR when opportunistic infections occur</li>
+                        </ol>
+                        <p><em>Note: Must clearly link destruction of T helper cells to failure of immune response.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 4 (4 marks)</h3>
+                    <p><strong>Compare and contrast the primary and secondary immune responses.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms4')">Show Mark Scheme</button>
+                    <div id="ms4" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Similarities (1 mark):</strong></p>
+                        <ul>
+                            <li>Both involve clonal selection of lymphocytes</li>
+                            <li>Both produce plasma cells and antibodies</li>
+                            <li>Both are specific to the antigen</li>
+                            <li>(Accept any one similarity)</li>
+                        </ul>
+                        <p><strong>Differences (3 marks - any 3 of the following):</strong></p>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                            <tr style="background: #667eea; color: white;">
+                                <th style="padding: 10px; border: 1px solid #ddd;">Primary Response</th>
+                                <th style="padding: 10px; border: 1px solid #ddd;">Secondary Response</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Slower response (days to weeks)</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Faster response (hours to days)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Lower antibody concentration</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Higher antibody concentration</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">No memory cells present initially</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Memory cells already present</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Symptoms often develop</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Often no symptoms/pathogen eliminated quickly</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Produces memory cells</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Uses existing memory cells</td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 10px;"><em>Note: Award 1 mark for each valid comparison showing understanding of both responses.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 5 (6 marks)</h3>
+                    <p><strong>Describe and explain how vaccination leads to the production of antibodies when a person is injected with a vaccine.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms5')">Show Mark Scheme</button>
+                    <div id="ms5" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 6 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>Vaccine contains antigen(s) from pathogen</li>
+                            <li>Antigen may be from a weakened/attenuated pathogen OR dead pathogen OR part of pathogen</li>
+                            <li>Antigen is displayed/presented by antigen-presenting cells</li>
+                            <li>T helper cell with complementary receptor binds to antigen</li>
+                            <li>T helper cell stimulates/activates a specific B cell</li>
+                            <li>B cell with complementary antibody/receptor is selected</li>
+                            <li>B cell divides by mitosis/undergoes clonal expansion</li>
+                            <li>B cells differentiate into plasma cells</li>
+                            <li>Plasma cells secrete/produce antibodies</li>
+                            <li>Memory cells are also produced which remain in blood</li>
+                            <li>Memory cells enable rapid response upon future infection</li>
+                        </ol>
+                        <p><em>Note: Look for clear sequence showing clonal selection and role of different cell types.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 6 (3 marks)</h3>
+                    <p><strong>Distinguish between active and passive immunity.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms6')">Show Mark Scheme</button>
+                    <div id="ms6" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>3 marks for clear distinctions:</strong></p>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                            <tr style="background: #667eea; color: white;">
+                                <th style="padding: 10px; border: 1px solid #ddd;">Active Immunity</th>
+                                <th style="padding: 10px; border: 1px solid #ddd;">Passive Immunity</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Produced by the individual's own immune system</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Antibodies received from another source/individual</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Takes time to develop/slow onset</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Immediate protection/fast-acting</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Long-lasting/produces memory cells</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Short-term/temporary/no memory cells</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">E.g., vaccination or infection</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">E.g., antibodies via placenta/breast milk or injection</td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 10px;"><em>Award 1 mark for each valid distinction (max 3). Examples can be credited if used to illustrate a point.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 7 (7 marks)</h3>
+                    <p><strong>Describe the role of T lymphocytes in the cell-mediated immune response.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms7')">Show Mark Scheme</button>
+                    <div id="ms7" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 7 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>Antigen-presenting cells display antigens on their surface</li>
+                            <li>T helper cell with complementary receptor binds to the antigen</li>
+                            <li>T helper cell is activated/stimulated</li>
+                            <li>T helper cell divides by mitosis/undergoes clonal expansion</li>
+                            <li>T helper cells release cytokines</li>
+                            <li>Cytokines stimulate/activate cytotoxic T cells</li>
+                            <li>Cytokines stimulate/activate B cells</li>
+                            <li>Cytokines attract/activate phagocytes</li>
+                            <li>Cytotoxic T cells recognize and bind to infected cells (displaying antigen)</li>
+                            <li>Cytotoxic T cells release perforin which creates pores in cell membrane</li>
+                            <li>Cytotoxic T cells release granzymes which cause apoptosis/programmed cell death</li>
+                            <li>Memory T cells are produced for long-term immunity</li>
+                        </ol>
+                        <p><em>Note: Must mention both T helper cells and cytotoxic T cells for full marks.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 8 (4 marks)</h3>
+                    <p><strong>Explain how antibodies lead to the destruction of pathogens.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms8')">Show Mark Scheme</button>
+                    <div id="ms8" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 4 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>Antibodies have two antigen binding sites/are Y-shaped/have variable regions</li>
+                            <li>Antibodies bind to antigens on pathogen surface</li>
+                            <li><strong>Agglutination:</strong> Antibodies clump/cause pathogens to aggregate together</li>
+                            <li>This makes them easier for phagocytes to engulf</li>
+                            <li><strong>Neutralization:</strong> Antibodies block/cover binding sites on pathogen</li>
+                            <li>This prevents pathogen from entering/attaching to host cells</li>
+                            <li><strong>Opsonization:</strong> Antibodies act as markers/labels/tags</li>
+                            <li>Phagocytes bind to antibodies and engulf the pathogen more easily</li>
+                            <li>Antibodies activate complement system leading to cell lysis</li>
+                        </ol>
+                        <p><em>Note: Award marks for describing specific mechanisms (agglutination, neutralization, opsonization).</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 9 (5 marks)</h3>
+                    <p><strong>Explain why it has been difficult to develop a vaccine against HIV.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms9')">Show Mark Scheme</button>
+                    <div id="ms9" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>Any 5 of the following points (1 mark each):</strong></p>
+                        <ol>
+                            <li>HIV has a high mutation rate/high genetic variation</li>
+                            <li>Due to errors made by reverse transcriptase</li>
+                            <li>Surface antigens constantly change/antigenic variation occurs</li>
+                            <li>Antibodies produced become ineffective against new strains</li>
+                            <li>Memory cells become ineffective/do not recognize mutated virus</li>
+                            <li>HIV destroys T helper cells which coordinate immune response</li>
+                            <li>HIV can remain dormant/latent inside cells</li>
+                            <li>Hidden virus is not exposed to immune system/antibodies</li>
+                            <li>HIV integrates into host DNA making it difficult to target</li>
+                            <li>Many different strains/subtypes of HIV exist globally</li>
+                        </ol>
+                        <p><em>Note: Must mention high mutation rate/antigenic variation as a key point.</em></p>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>Question 10 (Extended Response - 10 marks)</h3>
+                    <p><strong>Describe and explain how the body responds to infection by a bacterial pathogen that has entered the bloodstream. Include both non-specific and specific immune responses in your answer.</strong></p>
+                    
+                    <button class="check-btn" onclick="toggleMarkScheme('ms10')">Show Mark Scheme</button>
+                    <div id="ms10" class="hidden-content" style="background: #f0f4ff; padding: 20px; margin-top: 15px; border-radius: 8px;">
+                        <h4>Mark Scheme:</h4>
+                        <p><strong>This is a levels-based question. Award marks for quality of response:</strong></p>
+                        
+                        <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                            <h4 style="color: #28a745;">Level 3 (8-10 marks): Excellent</h4>
+                            <ul>
+                                <li>Comprehensive, coherent account of both non-specific and specific responses</li>
+                                <li>Accurate use of scientific terminology throughout</li>
+                                <li>Clear sequence showing how responses link together</li>
+                                <li>Explains mechanisms, not just description</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                            <h4 style="color: #ffc107;">Level 2 (5-7 marks): Good</h4>
+                            <ul>
+                                <li>Sound knowledge of immune responses</li>
+                                <li>Generally accurate terminology</li>
+                                <li>Some linkage between steps</li>
+                                <li>May have minor omissions or errors</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                            <h4 style="color: #dc3545;">Level 1 (1-4 marks): Basic</h4>
+                            <ul>
+                                <li>Limited knowledge</li>
+                                <li>Isolated facts without clear sequence</li>
+                                <li>Limited or incorrect use of terminology</li>
+                                <li>Significant omissions</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Expected content includes:</strong></p>
+                        
+                        <p><strong>Non-specific response (Phagocytosis):</strong></p>
+                        <ul>
+                            <li>Phagocytes attracted by chemical signals</li>
+                            <li>Recognition and binding to pathogen</li>
+                            <li>Engulfment forming phagosome</li>
+                            <li>Lysosome fusion and digestion</li>
+                            <li>Antigen presentation on surface</li>
+                        </ul>
+
+                        <p><strong>Specific response (Humoral):</strong></p>
+                        <ul>
+                            <li>T helper cell activation by antigen-presenting cell</li>
+                            <li>Cytokine release</li>
+                            <li>B cell activation with complementary receptor</li>
+                            <li>Clonal selection and expansion</li>
+                            <li>Differentiation into plasma cells and memory cells</li>
+                            <li>Antibody production and secretion</li>
+                            <li>Antibody functions: agglutination, neutralization, opsonization</li>
+                            <li>Role of memory cells in secondary response</li>
+                        </ul>
+
+                        <p><strong>Linking concepts:</strong></p>
+                        <ul>
+                            <li>How phagocytosis leads to specific response (antigen presentation)</li>
+                            <li>How both work together to eliminate pathogen</li>
+                            <li>How this creates immunity</li>
+                        </ul>
+
+                        <p><em>Award marks based on overall quality, coherence, and depth of understanding demonstrated.</em></p>
+                    </div>
+                </div>
+
+                <div class="warning-box" style="margin-top: 30px;">
+                    <h3>📝 Exam Technique Tips</h3>
+                    <ul>
+                        <li><strong>Command words matter:</strong> "Describe" = state what happens. "Explain" = state what happens AND why</li>
+                        <li><strong>Use the marks as a guide:</strong> A 6-mark question needs 6 distinct points</li>
+                        <li><strong>Be specific:</strong> Use precise biological terminology (e.g., "phagocyte" not "white blood cell")</li>
+                        <li><strong>Show sequence:</strong> Use connecting words like "then," "this leads to," "as a result"</li>
+                        <li><strong>Don't repeat:</strong> Make each point distinct - avoid saying the same thing in different words</li>
+                        <li><strong>Include detail:</strong> Names of cells, enzymes, structures, and processes</li>
+                        <li><strong>For "compare" questions:</strong> Make sure you address both sides, not just one</li>
+                        <li><strong>Read carefully:</strong> Check if the question asks about cell-mediated OR humoral OR both</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Quiz Tab -->
+            <div id="quiz" class="tab-content">
+                <h2>Test Your Knowledge</h2>
+                
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        <h3>Question 1: Which type of cell coordinates both cell-mediated and humoral responses?</h3>
+                        <div class="quiz-options" id="q1">
+                            <div class="quiz-option" data-answer="wrong">A) B cells</div>
+                            <div class="quiz-option" data-answer="correct">B) T helper cells</div>
+                            <div class="quiz-option" data-answer="wrong">C) Cytotoxic T cells</div>
+                            <div class="quiz-option" data-answer="wrong">D) Phagocytes</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 2: What is the main function of antibodies in opsonization?</h3>
+                        <div class="quiz-options" id="q2">
+                            <div class="quiz-option" data-answer="wrong">A) Directly kill pathogens</div>
+                            <div class="quiz-option" data-answer="correct">B) Mark pathogens for destruction by phagocytes</div>
+                            <div class="quiz-option" data-answer="wrong">C) Produce memory cells</div>
+                            <div class="quiz-option" data-answer="wrong">D) Create pores in pathogen membranes</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 3: During phagocytosis, what happens after a phagosome forms?</h3>
+                        <div class="quiz-options" id="q3">
+                            <div class="quiz-option" data-answer="wrong">A) The pathogen is immediately expelled</div>
+                            <div class="quiz-option" data-answer="wrong">B) The cell divides</div>
+                            <div class="quiz-option" data-answer="correct">C) Lysosomes fuse with the phagosome</div>
+                            <div class="quiz-option" data-answer="wrong">D) Antibodies are produced</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 4: Why is HIV particularly destructive to the immune system?</h3>
+                        <div class="quiz-options" id="q4">
+                            <div class="quiz-option" data-answer="wrong">A) It kills all white blood cells</div>
+                            <div class="quiz-option" data-answer="correct">B) It specifically targets T helper cells</div>
+                            <div class="quiz-option" data-answer="wrong">C) It prevents antibody production only</div>
+                            <div class="quiz-option" data-answer="wrong">D) It destroys phagocytes</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 5: What is the difference between the primary and secondary immune response?</h3>
+                        <div class="quiz-options" id="q5">
+                            <div class="quiz-option" data-answer="wrong">A) Primary uses B cells, secondary uses T cells</div>
+                            <div class="quiz-option" data-answer="correct">B) Secondary is faster and produces more antibodies due to memory cells</div>
+                            <div class="quiz-option" data-answer="wrong">C) Primary is specific, secondary is non-specific</div>
+                            <div class="quiz-option" data-answer="wrong">D) There is no difference</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 6: What do cytotoxic T cells release to destroy infected cells?</h3>
+                        <div class="quiz-options" id="q6">
+                            <div class="quiz-option" data-answer="wrong">A) Antibodies</div>
+                            <div class="quiz-option" data-answer="wrong">B) Cytokines only</div>
+                            <div class="quiz-option" data-answer="correct">C) Perforin and granzymes</div>
+                            <div class="quiz-option" data-answer="wrong">D) Lysozymes</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 7: Which type of vaccine contains weakened live pathogens?</h3>
+                        <div class="quiz-options" id="q7">
+                            <div class="quiz-option" data-answer="correct">A) Live attenuated vaccines</div>
+                            <div class="quiz-option" data-answer="wrong">B) Inactivated vaccines</div>
+                            <div class="quiz-option" data-answer="wrong">C) Subunit vaccines</div>
+                            <div class="quiz-option" data-answer="wrong">D) Toxoid vaccines</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h3>Question 8: What type of immunity is provided by breast milk from mother to baby?</h3>
+                        <div class="quiz-options" id="q8">
+                            <div class="quiz-option" data-answer="wrong">A) Active natural immunity</div>
+                            <div class="quiz-option" data-answer="wrong">B) Active artificial immunity</div>
+                            <div class="quiz-option" data-answer="correct">C) Passive natural immunity</div>
+                            <div class="quiz-option" data-answer="wrong">D) Passive artificial immunity</div>
+                        </div>
+                    </div>
+
+                    <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                    <div id="score" style="margin-top: 20px; font-size: 1.2em; font-weight: bold; color: #667eea;"></div>
+                </div>
+
+                <div class="info-box" style="margin-top: 30px;">
+                    <h3>Revision Tips</h3>
+                    <ul>
+                        <li>Draw flow diagrams showing the steps of each immune response</li>
+                        <li>Create comparison tables for cell-mediated vs humoral responses</li>
+                        <li>Practice explaining concepts out loud to solidify understanding</li>
+                        <li>Link each immune response to specific examples of pathogens it combats</li>
+                        <li>Understand the <em>why</em> behind each step, not just memorize the sequence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleContent(card) {
+            const hiddenContent = card.querySelector('.hidden-content');
+            hiddenContent.classList.toggle('show');
+        }
+
+        function toggleMarkScheme(id) {
+            const markScheme = document.getElementById(id);
+            if (markScheme.style.maxHeight === '5000px') {
+                markScheme.style.maxHeight = '0';
+            } else {
+                markScheme.style.maxHeight = '5000px';
+            }
+        }
+
+        let quizAnswered = false;
+
+        function checkAnswers() {
+            if (quizAnswered) {
+                return; // Prevent multiple checks
+            }
+            
+            quizAnswered = true;
+            let score = 0;
+            const totalQuestions = 8;
+
+            // Check each question
+            for (let i = 1; i <= totalQuestions; i++) {
+                const options = document.querySelectorAll(`#q${i} .quiz-option`);
+                options.forEach(option => {
+                    option.style.pointerEvents = 'none'; // Disable clicking
+                    if (option.dataset.answer === 'correct') {
+                        option.classList.add('correct');
+                        // Check if this option was clicked
+                        if (option.style.borderColor === 'rgb(102, 126, 234)' || option.classList.contains('selected')) {
+                            score++;
+                        }
+                    } else if (option.classList.contains('selected')) {
+                        option.classList.add('incorrect');
+                    }
+                });
+            }
+
+            // Display score
+            const scoreDiv = document.getElementById('score');
+            const percentage = Math.round((score / totalQuestions) * 100);
+            scoreDiv.innerHTML = `You scored ${score} out of ${totalQuestions} (${percentage}%)`;
+            
+            if (percentage >= 80) {
+                scoreDiv.innerHTML += ' - Excellent work! 🌟';
+            } else if (percentage >= 60) {
+                scoreDiv.innerHTML += ' - Good effort! Review the areas you missed. 📚';
+            } else {
+                scoreDiv.innerHTML += ' - Keep studying! Go back through the content. 💪';
+            }
+        }
+
+        // Add click handlers to quiz options
+        document.addEventListener('DOMContentLoaded', function() {
+            const allOptions = document.querySelectorAll('.quiz-option');
+            allOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    if (!quizAnswered) {
+                        // Remove selection from siblings
+                        const siblings = this.parentElement.querySelectorAll('.quiz-option');
+                        siblings.forEach(sib => {
+                            sib.classList.remove('selected');
+                            sib.style.borderColor = '';
+                        });
+                        // Mark this option as selected
+                        this.classList.add('selected');
+                        this.style.borderColor = '#667eea';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
